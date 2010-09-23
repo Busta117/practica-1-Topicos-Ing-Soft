@@ -48,7 +48,6 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 				
 				var rows = root.table.rows;
 
-
 				var sale = false;
 				var i = 0;
 				for ( var r = 0 ; r< rows.length ; r++ ) {
@@ -62,7 +61,8 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 					}
 				}
 				
-				
+				console.log(departamento1[0]);
+								
 				//sale = false;
 
 				console.log("datos recibidos!");
@@ -70,7 +70,7 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 					if(nodo == 0){
 						console.log(departamento1[0]);
 						self.subscriptor.alRecibirDatos(columna1, columna2, columna3, departamento1, departamento2);
-						key = columna5[0]; 
+						key = departamento2[0]; 
 					}
 					
 					
@@ -81,8 +81,6 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 					}else{
 						console.log("ultimo hijo!!!!");
 					}
-					
-					//comentario inutil
 					
 						
 			}
