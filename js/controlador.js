@@ -9,16 +9,15 @@ MVCGooogleDocs.Controlador = Oops.constructor({
     },
     augment: [ MVCGooogleDocs.SubsVistaInterface, MVCGooogleDocs.SubsModeloInterface ],
     proto: function(p) {
-        p.alClickCargar = function() {
-            this.modelo.obtenerDatos(0);
-            //this.vista.cargando();
+        p.alClickCargar = function(key) {
+            this.modelo.obtenerDatos(key);
         };
+
         p.alRecibirDatos = function(columna1, columna2, columna3, columna4, columna5) {
 		
-		//	if(next == 1){
-            	// Transformar los datos
-            	this.vista.mostrarDatos(columna1, columna2, columna3, columna4, columna5);
-			//}
+		//	console.log("holaaaaaaAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+           	this.vista.mostrarDatos(columna1, columna2, columna3, columna4, columna5);
+
         };
     }
 });
