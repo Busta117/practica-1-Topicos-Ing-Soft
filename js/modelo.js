@@ -13,7 +13,6 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 	},
 	proto: function(p) {
 		
-		
 		p.imprimir = function(texto, nivel){
 				var text = "";
 				for(var y = 0; y < nivel ; y++){
@@ -48,9 +47,11 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 		var self;
 
 		p.obtenerDatos = function(getKey) {
-			key = getKey;//"0AlumHf6aC2nodFp0bWtoMkU5R2JYMThSRzhCS1FlZmc";
+			key = getKey;//0AlumHf6aC2nodFp0bWtoMkU5R2JYMThSRzhCS1FlZmc
 
 			if(paraSelf){
+				nivel = [];
+				nivelSee = 0;
 				self = this;
 			}
 			paraSelf = false;

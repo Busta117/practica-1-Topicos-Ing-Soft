@@ -14,13 +14,17 @@ MVCGooogleDocs.Vista = Oops.constructor({
 
 		this.panel = panel;
 		this.boton = panel.getElementsByTagName("button")[0];
+		this.key = panel.getElementsByTagName("input")[0];
+		
 		this.subscriptor = new MVCGooogleDocs.SubsVistaInterface;
 		var self = this;
 
 
 
 		this.boton.onclick = function() {
-			self.subscriptor.alClickCargar("0AlumHf6aC2nodFp0bWtoMkU5R2JYMThSRzhCS1FlZmc");
+			//console.log(self.key.value)
+			self.boton.disabled=true;
+			self.subscriptor.alClickCargar(self.key.value);
 		};
 
 	},
@@ -34,6 +38,12 @@ MVCGooogleDocs.Vista = Oops.constructor({
 		p.cargando = function() {
 			contenido += "cargando datos....";
 			this.panel.getElementsByTagName("ul")[0].innerHTML = contenido;
+		};
+
+		p.cargandoMsg = function(){
+			var contenido = "Cargando...";
+			this.panel.getElementsByTagName("ul")[0].innerHTML = contenido;
+			
 		};
 
 		p.mostrarDatos = function(columna1, columna2, columna3, columna4, columna5) {
