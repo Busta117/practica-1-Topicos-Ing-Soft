@@ -12,15 +12,50 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 		this.subscriptor = new MVCGooogleDocs.SubsModeloInterface();
 	},
 	proto: function(p) {
-		
+
+		var columna1 = [];	//departamento	nivel = 0
+		var columna2 = [];	//ciudad		nivel = 1
+		var columna3 = [];	//centro		nivel = 2
+		var columna4 = [];	//mesa			nivel = 3
+		var columna5 = [];	//votos			nivel = 4		
+
+
 		p.imprimir = function(texto, nivel){
-				var text = "";
-				for(var y = 0; y < nivel ; y++){
-					text += "\t";
-				}	
-				console.log(text+""+texto+" en nivel: "+nivel);				
+
+			switch (nivel){
+				case 1:
+				columna1.push(texto);
+				break;
+				case 2:
+				columna2.push(texto);
+				if(columna2.length != columna1.length){
+					columna1.push("");
+				}
+				break;
+				case 3:
+				columna3.push(texto);
+				if(columna3.length != columna2.length){
+					columna1.push("");
+					columna2.push("");
+				}
+				break;
+				case 4:
+				columna4.push(texto);
+				if(columna4.length != columna3.length){
+					columna1.push("");
+					columna2.push("");
+					columna3.push("");
+				}
+				break;
+			}
+
+			var text = "";
+			for(var y = 0; y < nivel ; y++){
+				text += "\t";
+			}	
+			console.log(text+""+texto+" en nivel: "+nivel);				
 		}
-		
+
 		p.setSubscriptor = function(obj) {
 			this.subscriptor = obj;
 		};
@@ -36,13 +71,8 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 		var keyList = [];
 		var nameList = [];				
 
-		var columna1 = [];	//departamento	nivel = 0
-		var columna2 = [];	//ciudad		nivel = 1
-		var columna3 = [];	//centro		nivel = 2
-		var columna4 = [];	//mesa			nivel = 3
-		var columna5 = [];	//votos			nivel = 4		
-		
-		
+
+
 		var paraSelf = true;
 		var self;
 
@@ -63,12 +93,12 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 				var importante = false;
 				var importante2 = false;
 				for ( var r = 0 ; r< rows.length ; r++ ) {
-					
+
 					if(rows[r].c[0].v == "" ){
 						importante = true;
 					}
 					if(importante && rows[r].c[0].v != ""){
-						
+
 						if(rows[r].c[1].v.length > 5){	
 							nivel.push(nivelSee+1);				
 							keyList.push(rows[r].c[1].v); 
@@ -78,13 +108,13 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 							if(rows[r].c[1].v != ''){
 								importante2 = true;
 							}
-							
+
 						}
 					}
 				}
-				
+
 				//console.log(nameList[nameList.length-1]);
-				
+
 				if(importante2){
 					nivelSee++;
 					var sumaVotos = 0;
@@ -100,8 +130,8 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 						}
 
 					}
-					
-					
+
+
 					//console.log("total votos mesa: "+sumaVotos);
 					columna5.push(sumaVotos)
 					importante2 = false;
@@ -120,7 +150,7 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 					p.obtenerDatos(keyList.pop());
 
 				}
-				
+
 			}
 
 
@@ -128,7 +158,7 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 			// Leer de google docs
 			var e = document.createElement("script");
 
-		//	console.log("recibiendo datos!");
+			//	console.log("recibiendo datos!");
 			e.src = 'http://spreadsheets.google.com/tq?tqx=responseHandler:MVCGooogleDocs.callback&key='+key+'&pub=0';
 
 			e.type="text/javascript";
