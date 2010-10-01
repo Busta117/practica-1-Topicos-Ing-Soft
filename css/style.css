@@ -1,0 +1,32 @@
+body{
+	background-color:#ffffff;
+}
+
+h1{
+	color:orange;
+	text-align:center;
+}
+
+p{
+	font-family:"Times New Roman";
+	font-size:20px;
+}
+
+#resultados{
+	border-collapse:collapse;
+	width:51%;
+	font-family:arial;
+}
+#resultados, td
+{
+	border:1px solid green;
+}
+
+td{
+	padding:3px;
+}
+
+
+.trPar{
+	background-color:#eaf2d3;
+}

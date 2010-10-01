@@ -13,11 +13,11 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 	},
 	proto: function(p) {
 
-		var columna1 = [];	//departamento	nivel = 0
-		var columna2 = [];	//ciudad		nivel = 1
-		var columna3 = [];	//centro		nivel = 2
-		var columna4 = [];	//mesa			nivel = 3
-		var columna5 = [];	//votos			nivel = 4		
+		var columna1 = [];	//departamento	nivel = 1
+		var columna2 = [];	//ciudad		nivel = 2
+		var columna3 = [];	//centro		nivel = 3
+		var columna4 = [];	//mesa			nivel = 4
+		var columna5 = [];	//votos			nivel = 5		
 
 
 		p.imprimir = function(texto, nivel){
@@ -80,8 +80,6 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 			key = getKey;//0AlumHf6aC2nodFp0bWtoMkU5R2JYMThSRzhCS1FlZmc
 
 			if(paraSelf){
-				nivel = [];
-				nivelSee = 0;
 				self = this;
 			}
 			paraSelf = false;
@@ -142,7 +140,18 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 					}else{
 						//organizar datos para mostrar
 						//se llama cuando sale del ciclo...
-						self.subscriptor.alRecibirDatos(columna1, columna2, columna3, columna4, columna5);				
+						nivel = [];
+						nivelSee = 0;
+						self.subscriptor.alRecibirDatos(columna1, columna2, columna3, columna4, columna5);		
+						console.log("heyyy");
+						for(var a = 0 ; a<columna5.length;a++){
+							columna1.pop();
+							columna2.pop();
+							columna3.pop();
+							columna4.pop();
+							columna5.pop();
+							nivelSee = 0;
+						}		
 					}
 				}else{
 					nivelSee = nivel.pop();
