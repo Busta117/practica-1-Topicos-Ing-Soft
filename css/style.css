@@ -2,22 +2,20 @@ body{
 	background-color:#ffffff;
 }
 
-h1{
-	color:orange;
-	text-align:center;
-}
 
-p{
-	font-family:"Times New Roman";
-	font-size:20px;
+.topTable{
+	color:white;
+	background-color:#98c122;
+	font-family:arial;
+	text-align: center;
 }
 
 #resultados{
 	border-collapse:collapse;
-	width:51%;
+	width:60%;
 	font-family:arial;
 }
-#resultados, td
+#resultados,#globalResult, td
 {
 	border:1px solid green;
 }
@@ -26,6 +24,11 @@ td{
 	padding:3px;
 }
 
+#globalResult{
+	border-collapse:collapse;
+	width:40%;
+	font-family:arial;	
+}
 
 .trPar{
 	background-color:#eaf2d3;

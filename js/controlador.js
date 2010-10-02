@@ -16,11 +16,13 @@ MVCGooogleDocs.Controlador = Oops.constructor({
 
 		p.cargando = function(){
 			this.vista.cargandoMsg();
-		}
-        p.alRecibirDatos = function(columna1, columna2, columna3, columna4, columna5) {
+		};
 		
-		//	console.log("holaaaaaaAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-           	this.vista.mostrarDatos(columna1, columna2, columna3, columna4, columna5);
+		p.votosGlobales = function(candidatos, votos){
+			this.vista.votosGlobales(candidatos, votos);
+		};
+        p.alRecibirDatos = function(columna1, columna2, columna3, columna4, columna5, completo) {
+		 	this.vista.mostrarDatos(columna1, columna2, columna3, columna4, columna5, completo);
 
         };
     }
