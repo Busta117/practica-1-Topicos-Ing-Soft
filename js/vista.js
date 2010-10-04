@@ -56,23 +56,80 @@ MVCGooogleDocs.Vista = Oops.constructor({
 
 		p.votosGlobales = function(candidatos, votos){
 			
-			var contenido = "<tr><td class='topTable' colspan='2'><h3>Resultados Globales por Candidato:</h3></td></tr>";
+			console.log("aquiii : "+votos+" - "+candidatos);
+			var arrayTempVotos = [];
+			var arrayTempCand =  [];				
+			for(var k=0 ; k<votos.length; k++){
+				arrayTempVotos.push(votos[k]);
+			}			
+			arrayTempVotos.sort();						
+			for(var j=0 ; j<votos.length ; j++){
+				for(var h=0 ; h<candidatos.length ; h++){
+					if(votos[j] == arrayTempVotos[h]){
+						arrayTempCand[j] = candidatos[h];
+						break;
+					}
+				}
+			}			
+			var cien = 0;
+			for(var i=0 ; i<votos.length ; i++){
+				cien += votos[i];
+			}
+
+			arrayTempCand.reverse();
+			arrayTempVotos.reverse();
+			var contenido = "<tr><td class='topTable' colspan='3'><h3>Resultados Globales por Candidato:</h3></td></tr>";
 			var cont = 0;
 			var par = "";
-			for(var p in candidatos){
+			for(var p in arrayTempCand){
 				if(cont%2 == 0){par = "trImpar";}
 				else{par = "trPar";}
-				contenido += "<tr class='"+par+"'><td>" + candidatos[p] + "</td>";
-				contenido += "<td>" + votos[p] + "</td></tr>";
+				contenido += "<tr class='"+par+"'><td class='table1td'>" + arrayTempCand[p] + "</td>";
+				contenido += "<td class='table1td'>" + arrayTempVotos[p] + "</td>";
+				contenido += "<td class='table1td'>" + (arrayTempVotos[p]*100/cien) + "%</td></tr>";
 				cont++;
 			}
-			
+
 			
 			var ni = document.getElementById('globales');
 			var newTable = document.createElement('table');
 			newTable.setAttribute('id','globalResult');
 			newTable.innerHTML = contenido;
-			ni.appendChild(newTable);
+			ni.appendChild(newTable);			
+			
+		};
+		
+		p.graficar = function(candidatos, votos){
+		
+			console.log("graficaa : "+votos);	
+			var cien = 0;
+			for(var i=0 ; i<votos.length ; i++){
+				cien += votos[i];
+			}
+			
+			var tabla = "";
+			var td = "";	
+			tabla += "<tr>";
+			for(var b=0;b<candidatos.length;b++){
+				
+					tabla += "<td align='center' valign='bottom'>";
+					td = "<table width='100%' cellpadding='0' border='0'><tr><td></td><td align='center' valign='bottom'>"+parseInt(votos[b]*100/cien)+"%</td><td></td></tr>   <tr><td></td><td bgcolor='green' height='"+parseInt(votos[b]*100/cien)*2+"' width='50%'>  </td><td></td></tr></table>"
+					tabla += td;
+					tabla += "</td>";		
+			}
+			
+			tabla += "</tr><tr>";
+			for(var a=0;a<candidatos.length;a++){
+				tabla += "<td>"+candidatos[a]+"</td>";
+			}
+			tabla += "</tr>";
+			
+			
+			var ei = document.getElementById('globales');
+			var graphTable = document.createElement('table');
+			graphTable.setAttribute('id','graph');
+			graphTable.innerHTML = tabla;
+			ei.appendChild(graphTable);
 			
 		}
 
@@ -83,11 +140,15 @@ MVCGooogleDocs.Vista = Oops.constructor({
 			var divIdName = 'cargando';
 			newdiv.setAttribute('id',divIdName);
 			newdiv.innerHTML = contenido+"<br />";
-			ni.appendChild(newdiv);			
+			ni.appendChild(newdiv);	
+			
+					
 		};
 
 		var cont = 0;
 		p.mostrarDatos = function(columna1, columna2, columna3, columna4, columna5, completo) {
+
+			
 			var contenido1 = "";
 			if(completo){
 				var d = document.getElementById('myDiv');
@@ -108,22 +169,22 @@ MVCGooogleDocs.Vista = Oops.constructor({
 			if(cont%2 == 0){par = "trImpar";}
 			else{par = "trPar";}
 			if(columna1[columna1.length-1] != col1){
-				contenido1 = contenido1 + "<tr class='"+par+"'><td>" + columna1[columna1.length-1] + "</td>";
+				contenido1 = contenido1 + "<tr class='"+par+"'><td class='table1td'>" + columna1[columna1.length-1] + "</td>";
 			}else{
-				contenido1 += "<tr class='"+par+"'><td> </td>";	
+				contenido1 += "<tr class='"+par+"'><td class='table1td'> </td>";	
 			}
 			if(columna2[columna2.length-1] != col2){
-				contenido1 = contenido1 + "<td>" + columna2[columna2.length-1] + "</td>";
+				contenido1 = contenido1 + "<td class='table1td'>" + columna2[columna2.length-1] + "</td>";
 			}else{
-				contenido1 += "<td> </td>";	
+				contenido1 += "<td  class='table1td'> </td>";	
 			}
 			if(columna3[columna3.length-1] != col3){
-				contenido1 = contenido1 + "<td>" + columna3[columna3.length-1] + "</td>";
+				contenido1 = contenido1 + "<td  class='table1td'>" + columna3[columna3.length-1] + "</td>";
 			}else{
-				contenido1 += "<td> </td>";	
+				contenido1 += "<td  class='table1td'> </td>";	
 			}
-			contenido1 = contenido1 + "<td>" + columna4[columna4.length-1] + "</td>";
-			contenido1 = contenido1 + "<td>" + columna5[columna5.length-1] + "</td></tr>";
+			contenido1 = contenido1 + "<td  class='table1td'>" + columna4[columna4.length-1] + "</td>";
+			contenido1 = contenido1 + "<td class='table1td'>" + columna5[columna5.length-1] + "</td></tr>";
 
 			col1 = columna1[columna1.length-1];
 			col2 = columna2[columna2.length-1];

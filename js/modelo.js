@@ -11,6 +11,8 @@ MVCGooogleDocs.SubsModeloInterface = Oops.constructor({
 		};
 		p.votosGlobales = function(candidatos, votos){
 		};
+		p.graficar = function(candidatos, votos){
+		};
 	}
 });
 
@@ -90,6 +92,7 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 				_me.subscriptor.alRecibirDatos(columna1, columna2, columna3, columna4, columna5, completo);	
 				if(completo){
 					_me.subscriptor.votosGlobales(candidatos, votos);
+					_me.subscriptor.graficar(candidatos, votos);
 				}
 				break;
 			}

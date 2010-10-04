@@ -21,6 +21,10 @@ MVCGooogleDocs.Controlador = Oops.constructor({
 		p.votosGlobales = function(candidatos, votos){
 			this.vista.votosGlobales(candidatos, votos);
 		};
+		
+		p.graficar = function(candidatos, votos){
+			this.vista.graficar(candidatos, votos);
+		};
         p.alRecibirDatos = function(columna1, columna2, columna3, columna4, columna5, completo) {
 		 	this.vista.mostrarDatos(columna1, columna2, columna3, columna4, columna5, completo);
 

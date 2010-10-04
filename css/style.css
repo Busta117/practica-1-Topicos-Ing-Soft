@@ -15,13 +15,19 @@ body{
 	width:60%;
 	font-family:arial;
 }
-#resultados,#globalResult, td
+#resultados,#globalResult, .table1td
 {
 	border:1px solid green;
 }
 
 td{
 	padding:3px;
+}
+
+#graph{
+	text-align: center;
+	border-collapse:collapse;
+	font-family:arial;
 }
 
 #globalResult{
