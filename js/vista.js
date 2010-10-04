@@ -56,7 +56,6 @@ MVCGooogleDocs.Vista = Oops.constructor({
 
 		p.votosGlobales = function(candidatos, votos){
 			
-			console.log("aquiii : "+votos+" - "+candidatos);
 			var arrayTempVotos = [];
 			var arrayTempCand =  [];				
 			for(var k=0 ; k<votos.length; k++){
@@ -89,19 +88,16 @@ MVCGooogleDocs.Vista = Oops.constructor({
 				contenido += "<td class='table1td'>" + (arrayTempVotos[p]*100/cien) + "%</td></tr>";
 				cont++;
 			}
-
 			
 			var ni = document.getElementById('globales');
 			var newTable = document.createElement('table');
 			newTable.setAttribute('id','globalResult');
 			newTable.innerHTML = contenido;
-			ni.appendChild(newTable);			
-			
+			ni.appendChild(newTable);						
 		};
 		
 		p.graficar = function(candidatos, votos){
 		
-			console.log("graficaa : "+votos);	
 			var cien = 0;
 			for(var i=0 ; i<votos.length ; i++){
 				cien += votos[i];
@@ -110,8 +106,7 @@ MVCGooogleDocs.Vista = Oops.constructor({
 			var tabla = "";
 			var td = "";	
 			tabla += "<tr>";
-			for(var b=0;b<candidatos.length;b++){
-				
+			for(var b=0;b<candidatos.length;b++){				
 					tabla += "<td align='center' valign='bottom'>";
 					td = "<table width='100%' cellpadding='0' border='0'><tr><td></td><td align='center' valign='bottom'>"+parseInt(votos[b]*100/cien)+"%</td><td></td></tr>   <tr><td></td><td bgcolor='green' height='"+parseInt(votos[b]*100/cien)*2+"' width='50%'>  </td><td></td></tr></table>"
 					tabla += td;
@@ -122,9 +117,7 @@ MVCGooogleDocs.Vista = Oops.constructor({
 			for(var a=0;a<candidatos.length;a++){
 				tabla += "<td>"+candidatos[a]+"</td>";
 			}
-			tabla += "</tr>";
-			
-			
+			tabla += "</tr>";			
 			var ei = document.getElementById('globales');
 			var graphTable = document.createElement('table');
 			graphTable.setAttribute('id','graph');
