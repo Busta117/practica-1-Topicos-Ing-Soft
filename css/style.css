@@ -1,5 +1,8 @@
 body{
-	background-color:#ffffff;
+	text-align:center;
+	font-family:arial;
+	background-image:url("../images/gradientfromtop.gif");
+	background-repeat: repeat-x;
 }
 
 

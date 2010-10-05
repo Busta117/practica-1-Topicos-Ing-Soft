@@ -131,7 +131,7 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 
 			MVCGooogleDocs.callback = function(root) {
 				var rows = root.table.rows;
-				var cols = root.table.cols;
+				//	var cols = root.table.cols;
 
 				var importante = false;
 				var importante2 = false;

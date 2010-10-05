@@ -1,5 +1,6 @@
 var MVCGooogleDocs = window.MVCGooogleDocs || {};
 
+
 MVCGooogleDocs.SubsVistaInterface = Oops.constructor({   
 	proto: function(p) {
 		p.alClickCargar = function() {
@@ -56,20 +57,26 @@ MVCGooogleDocs.Vista = Oops.constructor({
 
 		p.votosGlobales = function(candidatos, votos){
 			
+			console.log(candidatos+" - "+votos);
 			var arrayTempVotos = [];
-			var arrayTempCand =  [];				
+			var arrayTempCand =  [];
+							
 			for(var k=0 ; k<votos.length; k++){
 				arrayTempVotos.push(votos[k]);
 			}			
-			arrayTempVotos.sort();						
+			arrayTempVotos.sort(function(a,b){return a - b});
 			for(var j=0 ; j<votos.length ; j++){
-				for(var h=0 ; h<candidatos.length ; h++){
+				for(var h=0 ; h<votos.length ; h++){
+					console.log(votos[j]+" - "+arrayTempVotos[h]);
 					if(votos[j] == arrayTempVotos[h]){
-						arrayTempCand[j] = candidatos[h];
+						arrayTempCand.push(candidatos[h]);
 						break;
 					}
 				}
-			}			
+			}
+			
+			console.log(arrayTempCand+" - "+arrayTempVotos);
+				
 			var cien = 0;
 			for(var i=0 ; i<votos.length ; i++){
 				cien += votos[i];
@@ -77,6 +84,7 @@ MVCGooogleDocs.Vista = Oops.constructor({
 
 			arrayTempCand.reverse();
 			arrayTempVotos.reverse();
+			
 			var contenido = "<tr><td class='topTable' colspan='3'><h3>Resultados Globales por Candidato:</h3></td></tr>";
 			var cont = 0;
 			var par = "";
@@ -127,7 +135,7 @@ MVCGooogleDocs.Vista = Oops.constructor({
 		}
 
 		p.cargandoMsg = function(){
-			var contenido = "Cargando...";
+			var contenido = "Cargando...<br /><img src='./images/loading.gif' width='3%'></img>";
 			var ni = document.getElementById('myDiv');
 			var newdiv = document.createElement('div');
 			var divIdName = 'cargando';

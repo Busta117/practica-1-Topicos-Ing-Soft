@@ -18,6 +18,7 @@
 
 console = window.console || { log: function(){} };
 
+
 function init()
 {
     var google = new MVCGooogleDocs.Vista( document.getElementById("google_docs") );
@@ -34,18 +35,23 @@ window.onload=init;
 
 	<body>
 
+		
 		<div id="google_docs" align='center'>
 			Introdusca key del pais: 
-			<input type="text" size="70" value="0AlumHf6aC2nodFp0bWtoMkU5R2JYMThSRzhCS1FlZmc"><br /><br />
+			<input type="text" size="70" value=0AsTunpthKrMxdEp5R1loYjBBcVhNQWVEc1BUZmZ1QUE>
+			<br />
+			<br />
 			<button id="cargar"> Cargar datos </button>
-			<button id="borrar" disabled="true"> borrar datos </button>
+			<button id="borrar" disabled="true"> borrar resultados por mesa </button>
+			<br />
 			<div id="todo">
+				<br />
 				<div id="myDiv"></div>
 				<br />
 				<div id="table"></div> 
 				<br />
 				<br />
-				<div id="globales"></div>    
+				<div id="globales"></div>
 				                  
 			</div>
 		</div>    
