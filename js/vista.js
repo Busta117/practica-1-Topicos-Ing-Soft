@@ -57,41 +57,42 @@ MVCGooogleDocs.Vista = Oops.constructor({
 
 		p.votosGlobales = function(candidatos, votos){
 			
-			console.log(candidatos+" - "+votos);
 			var arrayTempVotos = [];
-			var arrayTempCand =  [];
+			var arrayTempCand1 =  [];
+			var aux = "";
+			var alo = [];
 							
 			for(var k=0 ; k<votos.length; k++){
 				arrayTempVotos.push(votos[k]);
 			}			
 			arrayTempVotos.sort(function(a,b){return a - b});
+			
 			for(var j=0 ; j<votos.length ; j++){
 				for(var h=0 ; h<votos.length ; h++){
-					console.log(votos[j]+" - "+arrayTempVotos[h]);
-					if(votos[j] == arrayTempVotos[h]){
-						arrayTempCand.push(candidatos[h]);
+					if(votos[h] == arrayTempVotos[j]){
+						arrayTempCand1.push(candidatos[h]);
 						break;
 					}
 				}
 			}
 			
-			console.log(arrayTempCand+" - "+arrayTempVotos);
-				
+							
 			var cien = 0;
 			for(var i=0 ; i<votos.length ; i++){
 				cien += votos[i];
 			}
 
-			arrayTempCand.reverse();
+			arrayTempCand1.reverse();
 			arrayTempVotos.reverse();
+			
 			
 			var contenido = "<tr><td class='topTable' colspan='3'><h3>Resultados Globales por Candidato:</h3></td></tr>";
 			var cont = 0;
 			var par = "";
-			for(var p in arrayTempCand){
+			for(var p in arrayTempCand1){
 				if(cont%2 == 0){par = "trImpar";}
 				else{par = "trPar";}
-				contenido += "<tr class='"+par+"'><td class='table1td'>" + arrayTempCand[p] + "</td>";
+				contenido += "<tr class='"+par+"'><td class='table1td'>" + arrayTempCand1[p] + "</td>";
 				contenido += "<td class='table1td'>" + arrayTempVotos[p] + "</td>";
 				contenido += "<td class='table1td'>" + (arrayTempVotos[p]*100/cien) + "%</td></tr>";
 				cont++;
@@ -101,7 +102,7 @@ MVCGooogleDocs.Vista = Oops.constructor({
 			var newTable = document.createElement('table');
 			newTable.setAttribute('id','globalResult');
 			newTable.innerHTML = contenido;
-			ni.appendChild(newTable);						
+			ni.appendChild(newTable);	
 		};
 		
 		p.graficar = function(candidatos, votos){

@@ -66,23 +66,14 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 				case 2:
 				columna2.push(texto);
 				if(columna2.length != columna1.length){
-				//	columna1.push("");
 				}
 				break;
 				case 3:
 				columna3.push(texto);
-				/*if(columna3.length != columna2.length){
-					columna1.push("");
-					columna2.push("");
-				}*/
 				break;
 				case 4:
 				columna4.push(texto);
 				if(columna4.length != columna3.length){
-				/*	columna1.push("");
-					columna2.push("");
-					columna3.push("");
-				*/
 					if(keyList.length==1){
 						completo = true;
 					}
@@ -101,7 +92,7 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 			for(var y = 0; y < nivel ; y++){
 				text += "\t";
 			}	
-			console.log(text+""+texto+" con nivel: "+nivel);				
+			console.log(text+""+texto);				
 			
 			
 		}
@@ -155,9 +146,6 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 						}
 					}
 				}
-
-				//console.log(nameList[nameList.length-1]);
-
 				if(importante2){
 					nivelSee++;
 					var sumaVotos = 0;
@@ -169,10 +157,8 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 							importante3 = true;
 						}
 						if(importante3 && rows[i].c[0].v != ""){
-	//aqui se pone para sacar lo de casa candidato y sacar el resultado final
 							p.agregarVotoCandidato(rows[i].c[0].v , rows[i].c[1].v);
 							sumaVotos += rows[i].c[1].v;
-							//p.imprimir(rows[i].c[0].v ,nivelSee);
 						}
 
 					}
@@ -187,7 +173,6 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 
 						nivel = [];
 						nivelSee = 0;
-						//self.subscriptor.alRecibirDatos(columna1, columna2, columna3, columna4, columna5);		
 						for(var a = 0 ; a<columna5.length;a++){
 							columna1.pop();
 							columna2.pop();
@@ -210,8 +195,6 @@ MVCGooogleDocs.Modelo = Oops.constructor({
 
 			// Leer de google docs
 			var e = document.createElement("script");
-
-			//	console.log("recibiendo datos!");
 			e.src = 'http://spreadsheets.google.com/tq?tqx=responseHandler:MVCGooogleDocs.callback&key='+key+'&pub=0';
 
 			e.type="text/javascript";
