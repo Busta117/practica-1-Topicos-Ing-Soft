@@ -116,7 +116,7 @@ MVCGooogleDocs.Vista = Oops.constructor({
 			tabla += "<tr>";
 			for(var b=0;b<candidatos.length;b++){				
 					tabla += "<td align='center' valign='bottom'>";
-					td = "<table width='100%' cellpadding='0' border='0'><tr><td></td><td align='center' valign='bottom'>"+parseInt(votos[b]*100/cien)+"%</td><td></td></tr>   <tr><td></td><td bgcolor='green' height='"+parseInt(votos[b]*100/cien)*2+"' width='50%'>  </td><td></td></tr></table>"
+					td = "<table width='100%' cellpadding='0' border='0'><tr><td></td><td align='center' valign='bottom'>"+parseInt(votos[b]*100/cien)+"%</td><td></td></tr>   <tr><td></td><td bgcolor='orange' height='"+parseInt(votos[b]*100/cien)*2+"' width='50%'>  </td><td></td></tr></table>"
 					tabla += td;
 					tabla += "</td>";		
 			}

@@ -8,7 +8,7 @@ body{
 
 .topTable{
 	color:white;
-	background-color:#98c122;
+	background-color:#ffbf00;
 	font-family:arial;
 	text-align: center;
 }
@@ -20,7 +20,7 @@ body{
 }
 #resultados,#globalResult, .table1td
 {
-	border:1px solid green;
+	border:1px solid orange;
 }
 
 td{
@@ -40,5 +40,5 @@ td{
 }
 
 .trPar{
-	background-color:#eaf2d3;
+	background-color:#f7efdc;
 }
